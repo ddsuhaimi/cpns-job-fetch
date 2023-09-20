@@ -17,10 +17,22 @@ jobs:
         run: |
           node create-file.js
       
-      - name: Commit and Push New File
-        run: |
-          git config --local user.email "dedisuhaimiacc@gmail.com"
-          git config --local user.name "ddsuhaimi"
+      # - name: Commit and Push New File
+      #   run: |
+      #     git config --local user.email "dedisuhaimiacc@gmail.com"
+      #     git config --local user.name "ddsuhaimi"
+      #     git add .
+      #     git commit -m "Add newfile.txt via GitHub Actions"
+      #     git push
+
+      - uses: actions/checkout@v4
+      - with: 
+            # Default: ${{ github.token }}
+          token: ${{ secrets.TOKEN }}
+      - run: |
+          date > generated.txt
+          git config user.name "ddsuhaimi"
+          git config user.email "dedisuhaimiacc@gmail.com"
           git add .
-          git commit -m "Add newfile.txt via GitHub Actions"
+          git commit -m "generated"
           git push

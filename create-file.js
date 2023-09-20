@@ -1,4 +1,4 @@
-import fs from"fs";
+import fs from "fs";
 
 // Content for the new file
 

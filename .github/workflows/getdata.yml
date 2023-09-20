@@ -2,7 +2,7 @@ name: Cron Job
 
 on:
   schedule:
-    - cron: '* * * * *' # Runs daily at midnight
+    - cron: '*/5 * * * *' # Runs daily at midnight
 
 jobs:
   build:

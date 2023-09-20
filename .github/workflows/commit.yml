@@ -1,0 +1,26 @@
+name: On Commit
+
+on:
+  push:
+    branches:
+      - main # Adjust this branch to your main branch name or use "*" to trigger on all branches
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Run JavaScript Function
+        run: |
+          node create-file.js
+      
+      - name: Commit and Push New File
+        run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
+          git add newfile.txt
+          git commit -m "Add newfile.txt via GitHub Actions"
+          git push

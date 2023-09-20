@@ -1,7 +1,6 @@
 const fs = require('fs');
 
 // Content for the new file
-const content = 'This is the content of the new file.';
 
 // Get the current date and time
 const now = new Date();
@@ -15,8 +14,9 @@ const seconds = String(now.getSeconds()).padStart(2, '0');
 // Format the current date and time as a string
 const currentTime = `${year}${month}${day}_${hours}${minutes}${seconds}`;
 
+const content = `${currentTime}This is the content of the new file.`;
 // Specify the file path with the current time
-const filePath = `newfile_${currentTime}.txt`;
+const filePath = `newfile.txt`;
 
 // Write the content to the new file
 fs.writeFileSync(filePath, content);

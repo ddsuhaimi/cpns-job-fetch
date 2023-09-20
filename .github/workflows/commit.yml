@@ -19,8 +19,8 @@ jobs:
       
       - name: Commit and Push New File
         run: |
-          git config --local user.email "actions@github.com"
-          git config --local user.name "GitHub Actions"
+          git config --local user.email "dedisuhaimiacc@gmail.com"
+          git config --local user.name "ddsuhaimi"
           git add newfile.txt
           git commit -m "Add newfile.txt via GitHub Actions"
           git push

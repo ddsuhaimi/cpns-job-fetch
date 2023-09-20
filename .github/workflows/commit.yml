@@ -1,36 +1,36 @@
-name: On Commit
+# name: On Commit
 
-on:
-  push:
-    branches:
-      - main # Adjust this branch to your main branch name or use "*" to trigger on all branches
+# on:
+#   push:
+#     branches:
+#       - main # Adjust this branch to your main branch name or use "*" to trigger on all branches
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-        with: 
-          token: ${{ secrets.TOKEN }}
+#     steps:
+#       - name: Checkout Repository
+#         uses: actions/checkout@v4
+#         with: 
+#           token: ${{ secrets.TOKEN }}
 
-      - name: Run JavaScript Function
-        run: |
-          node create-file.js
+#       - name: Run JavaScript Function
+#         run: |
+#           node create-file.js
       
-      # - name: Commit and Push New File
-      #   run: |
-      #     git config --local user.email "dedisuhaimiacc@gmail.com"
-      #     git config --local user.name "ddsuhaimi"
-      #     git add .
-      #     git commit -m "Add newfile.txt via GitHub Actions"
-      #     git push
-      - name: Commit and Push New File
-        run: |
-          date > generated.txt
-          git config user.name "ddsuhaimi"
-          git config user.email "dedisuhaimiacc@gmail.com"
-          git add .
-          git commit -m "generated"
-          git push
+#       # - name: Commit and Push New File
+#       #   run: |
+#       #     git config --local user.email "dedisuhaimiacc@gmail.com"
+#       #     git config --local user.name "ddsuhaimi"
+#       #     git add .
+#       #     git commit -m "Add newfile.txt via GitHub Actions"
+#       #     git push
+#       - name: Commit and Push New File
+#         run: |
+#           date > generated.txt
+#           git config user.name "ddsuhaimi"
+#           git config user.email "dedisuhaimiacc@gmail.com"
+#           git add .
+#           git commit -m "generated"
+#           git push

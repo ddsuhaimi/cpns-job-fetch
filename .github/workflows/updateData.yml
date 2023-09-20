@@ -23,5 +23,5 @@ jobs:
           git config user.name "ddsuhaimi"
           git config user.email "dedisuhaimiacc@gmail.com"
           git add .
-          git commit -m "generated"
+          git commit --allow-empty -m "generated"
           git push

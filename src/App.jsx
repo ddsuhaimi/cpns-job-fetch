@@ -4,6 +4,13 @@ import './App.css'
 import { useTable, useSortBy, useGlobalFilter } from 'react-table';
 const COLUMNS = [
   {
+    Header: '#',
+    accessor: (values, i) => {
+      console.log(values)
+      return i
+    },
+  },
+  {
     Header: 'Jabatan',
     accessor: 'jabatan_nm',
   },

@@ -1,4 +1,4 @@
-name: On Commit
+name: Update Data
 
 on:
   schedule:

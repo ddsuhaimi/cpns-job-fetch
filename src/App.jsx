@@ -38,17 +38,23 @@ const COLUMNS = [
 function App() {
   const [data, setData] = useState([])
   const columns = useMemo(() => COLUMNS, []);
+  const [jurusan, setJurusan] = useState("s1Matematika")
   const tableInstance = useTable({ columns, data });
   // const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable({ columns, data });
   useEffect(() => {
-    async function getData(){
-      const response = await fetch("https://raw.githubusercontent.com/ddsuhaimi/cpns-job-fetch/main/s1matematika.json")
+    async function getData() {
+      let response = null
+      if (jurusan === "s1Matematika") {
+        response = await fetch("https://raw.githubusercontent.com/ddsuhaimi/cpns-job-fetch/main/s1matematika.json")
+      } else if (jurusan === "d4TeknikInformatika"){
+        response = await fetch("https://raw.githubusercontent.com/ddsuhaimi/cpns-job-fetch/main/d4teknikinformatika.json") 
+      }
       const jb = await response.json()
       console.log("🚀 ~ file: App.jsx:40 ~ getData ~ jb:", jb)
       setData(jb.data.filter(item => item.disable === "0"))
     }
     getData()
-  }, [])
+  }, [jurusan])
 
   const {
     getTableProps,
@@ -74,7 +80,15 @@ function App() {
 
   return (
     <div className='text-xs'>
-      <div className="search-container my-8 ">
+
+
+      <div className="mt-2 mb-4 search-container ">
+        <label htmlFor="cars">Pilih jurusan:</label>
+        <select onChange={(e) => setJurusan(e.target.value)} id="countries" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+          <option value="s1Matematika" selected>S1 Matematika</option>
+          <option value="d4TeknikInformatika">D4 Teknik Informatika</option>
+        </select>
+        <label htmlFor="first_name">Cari:</label>
         <input type="text" id="first_name"
           value={globalFilter || ''}
           onChange={(e) => setGlobalFilter(e.target.value)}
@@ -86,6 +100,8 @@ function App() {
           onChange={(e) => setGlobalFilter(e.target.value)}
         /> */}
       </div>
+
+      <span>- klik di kolom table untuk sorting</span>
       <table {...getTableProps()}>
         <thead>
           {headerGroups.map((headerGroup) => (

@@ -24,7 +24,7 @@ const COLUMNS = [
   },
   {
     Header: 'Jenis',
-    accessor: 'jp_nama',
+    accessor: (values) => values.jp_nama + " " + values.formasi_nm,
   },
   {
     Header: 'Formasi',

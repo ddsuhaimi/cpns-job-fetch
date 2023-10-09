@@ -27,7 +27,7 @@ const COLUMNS = [
   },
   {
     Header: 'Formasi',
-    accessor: 'pengadaan_kd',
+    accessor: 'jumlah_formasi',
   },
   {
     Header: 'Jlh Jur',
